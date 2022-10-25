@@ -56,7 +56,7 @@ class ArticleController
         }
 
         $image_chemin = '';
-        $user = '3';
+        $user = '1';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -74,7 +74,7 @@ class ArticleController
                     }
                     if (!isset($errors_succes)) {
                         $errors_succes = "l'image est chargée";
-                        $image_chemin = './img/' . uniqid() . $extension;
+                        $image_chemin = './assets/img/' . uniqid() . $extension;
                         move_uploaded_file($_FILES['image']['tmp_name'], $image_chemin);
                     }
                 }

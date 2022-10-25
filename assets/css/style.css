@@ -100,7 +100,6 @@ a {
 /* header */
 
 header {
-  background-color: var(--primary);
   padding: 1.5rem;
   box-shadow: var(--box-shadow);
   display: flex;
@@ -114,6 +113,7 @@ header {
   border-radius: 3px;
   padding: 5px 15px;
   transition: background-color 0.2s;
+  font-size: 2rem;
 }
 .header-menu li:hover {
   background-color: var(--primary-dark);

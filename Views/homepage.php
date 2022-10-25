@@ -1,5 +1,4 @@
 <div class="container">
-    <?php require_once './includes/header.php' ?>
     <div class="content">
         <div class="block-articles">
             <?php foreach ($articles as $article) : ?>
