@@ -54,8 +54,11 @@ class UserController
                 $this->userManager->addUser($nom, $prenom, $pseudonyme, $email, $password);
             } catch (PDOException $e) {
                 echo 'Already taken.';
+                $verif = 1;
             }
-            header('Location: homepage');
+            if ($verif != 1) {
+                header('Location: homepage');
+            }
         }
         require_once './Views/register.php';
     }
