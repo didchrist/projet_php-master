@@ -1,5 +1,6 @@
 <div class="content">
     <div class="block p-20 form-container">
+        <h2>Create account</h2>
         <form action="#" method="POST">
             <div class="form-control">
                 <input type="text" name="nom" value="<?= $nom ?? ''?>" placeholder="First Name" required>
@@ -18,11 +19,11 @@
                 <input type="password" name="password" placeholder="******" required>
             </div>
             <div class="form-actions">
-                <button type="submit">Register</button>
+                <button class="btn btn-primary" type="submit">Register</button>
             </div>
             <?php else: ?>
             <div class="form-actions">
-                <button type="submit">Edit</button>
+                <button class="btn btn-primary" type="submit">Edit</button>
             </div>
             <?php endif; ?>
         </form>

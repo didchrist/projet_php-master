@@ -34,7 +34,7 @@ if (isset($_SESSION['utilisateur']) or isset($_COOKIE['utilisateur'])) {
         } elseif ($page === 'article') {
             $articleController->getArticle();
             $style = './assets/css/articles.css';
-        } elseif ($page === 'loggin') {
+        } elseif ($page === 'login') {
             $userController->getUser();
             $style = './assets/css/add-article.css';
         } elseif ($page === 'register') {
@@ -42,7 +42,7 @@ if (isset($_SESSION['utilisateur']) or isset($_COOKIE['utilisateur'])) {
             $style = './assets/css/add-article.css';
         } elseif ($page === 'disconnect') {
             $userController->delogUser();
-        } elseif ($page === 'profil') {
+        } elseif ($page === 'profile') {
             $userController->updateUser();
             $style = './assets/css/add-article.css';
         }
@@ -57,7 +57,7 @@ if (isset($_SESSION['utilisateur']) or isset($_COOKIE['utilisateur'])) {
         } elseif ($page === 'article') {
             $articleController->getArticle();
             $style = './assets/css/articles.css';
-        } elseif ($page === 'loggin') {
+        } elseif ($page === 'login') {
             $userController->getUser();
             $style = './assets/css/add-article.css';
         } elseif ($page === 'register') {

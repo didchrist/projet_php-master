@@ -21,15 +21,15 @@
             <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=homepage' ? 'active' : '' ?>"
             href="../index.php?page=homepage">Articles</a></li>
             <?php if (!isset($_SESSION['utilisateur']) and !isset($_COOKIE['utilisateur'])): ?>
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=loggin' ? 'active' : '' ?>" 
-            href="../index.php?page=loggin">Loggin</a></li>
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=login' ? 'active' : '' ?>" 
+            href="../index.php?page=login">Login</a></li>
             <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=register' ? 'active' : '' ?>"
             href="../index.php?page=register">Register</a></li>
             <?php else: ?>
             <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=add-article' ? 'active' : '' ?>"
                     href="../index.php?page=add-article">Créer un article</a></li>
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=profil' ? 'active' : '' ?>"
-                     href="../index.php?page=profil">Profil</a></li>
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=profile' ? 'active' : '' ?>"
+                     href="../index.php?page=profile">Profile</a></li>
             <li><a href="/index.php?page=disconnect">Se déconnecter</a></li>
             <?php endif; ?>
             <li><a href="../test.php">test</a></li>

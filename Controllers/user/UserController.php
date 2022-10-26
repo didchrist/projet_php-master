@@ -38,7 +38,7 @@ class UserController
                 header('Location: homepage');
             }
         }
-        require_once './Views/loggin.php';
+        require_once './Views/login.php';
     }
     public function addUser()
     {

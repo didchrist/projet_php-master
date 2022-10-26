@@ -1,7 +1,7 @@
 /* theme */
 :root {
   --font-family: "Open Sans", "sans-serif";
-  --primary: #0132ac;
+  --primary: #435372;
   --primary-dark: #137c8b;
   --dark: rgb(43, 61, 79);
   --danger: #e74c3c;
@@ -77,6 +77,9 @@ ul {
   box-shadow: var(--box-shadow);
 }
 
+.btn:hover {
+  background-color: var(--primary-dark);
+}
 .btn-primary {
   background-color: var(--primary);
   color: var(--text-color-light);
