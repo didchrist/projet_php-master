@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 21 oct. 2022 à 12:34
+-- Généré le : jeu. 27 oct. 2022 à 06:32
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -80,16 +80,23 @@ INSERT INTO `categories` (`id`, `category`) VALUES
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+  `nom` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `prenom` varchar(100) NOT NULL,
+  `pseudonyme` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `motdepasse` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pseudonyme` (`pseudonyme`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`) VALUES
-(3, 'Thomas');
+INSERT INTO `users` (`id`, `nom`, `prenom`, `pseudonyme`, `email`, `motdepasse`) VALUES
+(3, 'Thomas', '', '', '', ''),
+(4, 'Pelette', 'Christopher', 'didchrist', 'christopher.pelette@gmail.com', '$2y$10$8xEMb38uJsxldI4u9eoN7.QU5Pjq9jq8YD00A0kfO.R0UF2k.ITd2');
 
 --
 -- Contraintes pour les tables déchargées
