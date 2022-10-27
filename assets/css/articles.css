@@ -4,7 +4,7 @@
 }
 .card {
   min-width: 350px;
-  min-height: 300px;
+  height: 300px;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -46,4 +46,50 @@
   transform: scale(1.2);
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
+}
+.homepage {
+  display: flex;
+  padding: 0;
+  width: 100%;
+  max-height: 100%;
+}
+.aside {
+  width: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(77, 20, 87);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: 1.5s;
+}
+.aside form {
+  display: none;
+}
+.div-fleche {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  transition: 1.5s;
+}
+.fleche {
+  font-size: 5rem;
+  color: white;
+}
+.aside:hover {
+  width: 4%;
+}
+.aside:hover > .div-fleche {
+  left: 55%;
+}
+#aside:target {
+  width: 15%;
+  overflow: hidden;
+}
+#aside:target > form {
+  display: block;
+}
+#aside:target > .div-fleche {
+  display: none;
 }

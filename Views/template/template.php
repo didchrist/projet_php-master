@@ -30,7 +30,6 @@
             <li><a class="<?= $_SERVER['REQUEST_URI'] === '/profile' ? 'active' : '' ?>" href="profile">Profile</a></li>
             <li><a href="disconnect">Se déconnecter</a></li>
             <?php endif; ?>
-            <li><a href="../test.php">test</a></li>
         </ul>
     </header>
     <div class="container">

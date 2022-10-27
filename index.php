@@ -23,6 +23,9 @@ if (isset($_SESSION['utilisateur']) or isset($_COOKIE['utilisateur'])) {
         if ($page === 'homepage') {
             $articleController->getArticles();
             $style = './assets/css/articles.css';
+        } elseif ($page === 'article-category') {
+            $articleController->getArticlesByCategory();
+            $style = './assets/css/articles.css';
         } elseif ($page === 'add-article') {
             $articleController->setArticle();
             $style = './assets/css/add-article.css';

@@ -16,6 +16,16 @@ class ArticleManager extends Database
         return $articles;
     }
 
+    public function getArticlesByCategory($cat)
+    {
+        $req = 'SELECT articles.*, categories.category FROM articles INNER JOIN categories ON articles.idcat=categories.id WHERE category = ?';
+        $statement = $this->getBdd()->prepare($req);
+        $statement->execute([$cat]);
+        $articles = $statement->fetchAll();
+        $statement->closeCursor();
+        return $articles;
+    }
+
     public function getArticle($id)
     {
         $req = "SELECT articles.*, categories.*, users.pseudonyme FROM articles INNER JOIN categories ON articles.idcat=categories.id INNER JOIN users ON articles.iduser=users.id WHERE articles.id=$id";

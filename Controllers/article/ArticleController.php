@@ -24,16 +24,44 @@ class ArticleController
             'description' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
             'category' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
             'modifier' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
-            'article-index' => FILTER_SANITIZE_NUMBER_INT
+            'article-index' => FILTER_SANITIZE_NUMBER_INT,
+            'category' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+            'cat' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
         ]);
+    }
+
+    public function detectCat($articles)
+    {
+        $option = [];
+        foreach ($articles as $objet) {
+            $tableauObjet[] = $objet->category;
+            $cmp = array_diff($tableauObjet, $option);
+            if (!empty($cmp)) {
+                $option[] = $objet->category;
+            }
+        }
+        return $option;
     }
 
     public function getArticles()
     {
         $this->getClean();
         $articles = $this->articleManager->getArticles();
+        array_multisort(array_column($articles, 'category'), SORT_NATURAL, $articles);
+        $option = $this->detectCat($articles);
         require_once './Views/homepage.php';
     }
+    public function getArticlesByCategory()
+    {
+        $this->getClean();
+        $cat = $_POST['cat'];
+        $articles = $this->articleManager->getArticlesByCategory($cat);
+        array_multisort(array_column($articles, 'titre'), SORT_NATURAL, $articles);
+        $fullarticles = $this->articleManager->getArticles();
+        $option = $this->detectCat($fullarticles);
+        require_once './Views/homepage.php';
+    }
+
     public function getArticle()
     {
         $this->getClean();
