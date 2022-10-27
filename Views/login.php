@@ -1,5 +1,10 @@
 <div class="content">
     <div class="block p-20 form-container">
+        <?php if (isset($error)) : ?>
+        <div class="box-error">
+            <p class="error-message"><?= $error ?? '' ?></p>
+        </div>
+        <?php endif; ?>
         <h2>Login</h2>
         <form action="#" method="POST">
             <div class="form-control">

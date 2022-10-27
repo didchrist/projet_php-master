@@ -4,6 +4,9 @@ namespace Controllers\article;
 
 use Models\article\ArticleManager;
 
+use Models\user;
+use Models\user\UserManager;
+
 class ArticleController
 {
     private $articleManager;
@@ -36,11 +39,18 @@ class ArticleController
         $this->getClean();
         $article_index = $_POST['article-index'] ?? '';
         $article = $this->articleManager->getArticle($article_index);
+        $info = $_SESSION['utilisateur'] ? $_SESSION['utilisateur'] : $_COOKIE['utilisateur'];
+        if ($info == $article->pseudonyme) {
+            $droit = true;
+        } else {
+            $droit = false;
+        }
         require_once './Views/article.php';
     }
     public function setArticle()
     {
         $this->getClean();
+        require_once './Views/errors.php';
 
         $article_index = $_POST['article-index'] ?? '';
 
@@ -56,24 +66,26 @@ class ArticleController
         }
 
         $image_chemin = '';
-        $user = '1';
+        $this->userManager = new UserManager;
+        $info = $_SESSION['utilisateur'] ? $_SESSION['utilisateur'] : $_COOKIE['utilisateur'];
+        $user = $this->userManager->getUser($info);
+        $iduser = $user->id;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (isset($_POST['validate'])) {
                 if ($_FILES['image']['error'] == 4) {
-                    $errors_succes = "Veuillez insérer une image valide.";
+                    $error = ERROR_IMAGE_NOTHING;
                 }
                 if ($_FILES['image']['error'] == 0) {
                     if ($_FILES['image']['size'] > 150000) {
-                        $errors_succes = "Votre image est trop lourde.";
+                        $error = ERROR_IMAGE_HEAVY;
                     }
                     $extension = strchr($_FILES['image']['name'], '.');
                     if ($extension != '.jpg' and $extension != '.png') {
-                        $errors_succes = "Votre format d'image n'est en .png ou .jpg.";
+                        $error = ERROR_IMAGE_EXTENSION;
                     }
-                    if (!isset($errors_succes)) {
-                        $errors_succes = "l'image est chargée";
+                    if (!isset($error)) {
                         $image_chemin = './assets/img/' . uniqid() . $extension;
                         move_uploaded_file($_FILES['image']['tmp_name'], $image_chemin);
                     }
@@ -81,7 +93,8 @@ class ArticleController
             }
             if (isset($title) and isset($description) and isset($option) and file_exists($image_chemin) and $article_index === '') {
 
-                $this->articleManager->addArticle($title, $image_chemin, $description, $option, $user);
+                $this->articleManager->addArticle($title, $image_chemin, $description, $option, $iduser);
+                header('Location: homepage');
             }
 
             if (isset($_POST['validate']) and $article_index != '' and isset($title) and isset($description) and isset($option)) {
@@ -93,6 +106,7 @@ class ArticleController
                     $image_chemin = $article->image;
                 }
                 $this->articleManager->updateArticle($title, $image_chemin, $description, $option, $article_index);
+                header('Location: homepage');
             }
         }
         require_once './Views/add-article.php';

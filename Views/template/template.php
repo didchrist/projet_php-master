@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bases - POO - MVC</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="<?= $style ?? ''?>">
+    <link rel="stylesheet" href="<?= $style ?? '' ?>">
 </head>
 
 <body>
@@ -16,21 +16,19 @@
             <a class="logo" href="../index.php">Projet Blog PHP</a>
         </div>
         <ul class="header-menu">
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=homepage' ? 'active' : '' ?>"
-            href="../index.php">Home</a></li>
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=homepage' ? 'active' : '' ?>"
-            href="../index.php?page=homepage">Articles</a></li>
-            <?php if (!isset($_SESSION['utilisateur']) and !isset($_COOKIE['utilisateur'])): ?>
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=login' ? 'active' : '' ?>" 
-            href="../index.php?page=login">Login</a></li>
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=register' ? 'active' : '' ?>"
-            href="../index.php?page=register">Register</a></li>
-            <?php else: ?>
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=add-article' ? 'active' : '' ?>"
-                    href="../index.php?page=add-article">Créer un article</a></li>
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/index.php?page=profile' ? 'active' : '' ?>"
-                     href="../index.php?page=profile">Profile</a></li>
-            <li><a href="/index.php?page=disconnect">Se déconnecter</a></li>
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/homepage' ? 'active' : '' ?>" href="homepage">Home</a>
+            </li>
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/homepage' ? 'active' : '' ?>" href="homepage">Articles</a>
+            </li>
+            <?php if (!isset($_SESSION['utilisateur']) and !isset($_COOKIE['utilisateur'])) : ?>
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/login' ? 'active' : '' ?>" href="login">Login</a></li>
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/register' ? 'active' : '' ?>" href="register">Register</a>
+            </li>
+            <?php else : ?>
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/add-article' ? 'active' : '' ?>" href="add-article">Créer un
+                    article</a></li>
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/profile' ? 'active' : '' ?>" href="profile">Profile</a></li>
+            <li><a href="disconnect">Se déconnecter</a></li>
             <?php endif; ?>
             <li><a href="../test.php">test</a></li>
         </ul>

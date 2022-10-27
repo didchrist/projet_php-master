@@ -1,11 +1,12 @@
 <?php
+
 namespace Models\user;
 
 use Models\Database;
 
-class UserManager extends Database 
+class UserManager extends Database
 {
-    public function getUser($info) 
+    public function getUser($info)
     {
         $req = 'SELECT * FROM users WHERE email = ? OR pseudonyme = ?';
         $statement = $this->getBdd()->prepare($req);
@@ -17,7 +18,7 @@ class UserManager extends Database
 
     public function addUser($nom, $prenom, $pseudonyme, $email, $motdepasse)
     {
-        $req= 'INSERT INTO users (nom, prenom, pseudonyme, email, motdepasse) VALUES (?, ?, ?, ?, ?)';
+        $req = 'INSERT INTO users (nom, prenom, pseudonyme, email, motdepasse) VALUES (?, ?, ?, ?, ?)';
         $statement = $this->getBdd()->prepare($req);
         $statement->execute([$nom, $prenom, $pseudonyme, $email, $motdepasse]);
     }

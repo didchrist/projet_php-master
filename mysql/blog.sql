@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 27 oct. 2022 à 06:32
+-- Généré le : jeu. 27 oct. 2022 à 09:05
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -38,16 +38,17 @@ CREATE TABLE IF NOT EXISTS `articles` (
   PRIMARY KEY (`id`),
   KEY `FK_usersArticles` (`iduser`),
   KEY `FK_categoriesArticles` (`idcat`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
 INSERT INTO `articles` (`id`, `titre`, `image`, `description`, `idcat`, `iduser`) VALUES
-(4, 'Test ++', './img/63528a13ef38b.jpg', 'Ceci est une description de type test.', 2, 3),
-(5, 'Ultra Test', './img/63528a3aee7c5.png', 'blablabla ...', 3, 3),
-(9, 'Test', './img/63528cf9b5815.png', 'Ceci est un texte.', 3, 3);
+(10, 'Titre', './assets/img/635a29ac7a040.png', 'Descripto', 1, 4),
+(11, 'Titre 2', './assets/img/635a2a05228ac.png', 'Descripto 2', 3, 4),
+(12, 'Test', './assets/img/635a30b323117.jpg', 'Petit saumon ?', 1, 5),
+(14, 'test 2', './assets/img/635a42939373e.png', 'test', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -88,15 +89,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `pseudonyme` (`pseudonyme`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `pseudonyme`, `email`, `motdepasse`) VALUES
-(3, 'Thomas', '', '', '', ''),
-(4, 'Pelette', 'Christopher', 'didchrist', 'christopher.pelette@gmail.com', '$2y$10$8xEMb38uJsxldI4u9eoN7.QU5Pjq9jq8YD00A0kfO.R0UF2k.ITd2');
+(4, 'Pelette', 'Christopher', 'didchrist', 'christopher.pelette@gmail.com', '$2y$10$8xEMb38uJsxldI4u9eoN7.QU5Pjq9jq8YD00A0kfO.R0UF2k.ITd2'),
+(5, 'Test', 'Test', 'Testostas', 'test@test.com', '$2y$10$ULC7pzabuv6w7mtzTKU8UuiqTYL3ADwxct1EIRrI7KHcenzqHhBcG');
 
 --
 -- Contraintes pour les tables déchargées
