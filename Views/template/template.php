@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?= $style ?? '' ?>">
 </head>
 
-<body>
+<body id="aside">
     <header>
         <div class="contour-logo">
             <a class="logo" href="../index.php">Projet Blog PHP</a>

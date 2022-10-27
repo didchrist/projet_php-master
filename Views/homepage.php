@@ -1,5 +1,5 @@
 <div class="homepage">
-    <aside class="aside" id="aside">
+    <aside class="aside">
         <form action="homepage" method="POST">
             <button class="btn btn-primary">All</button>
         </form>

@@ -59,7 +59,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(77, 20, 87);
-  height: 100vh;
+  height: 92vh;
   position: relative;
   overflow: hidden;
   transition: 1.5s;
@@ -83,13 +83,13 @@
 .aside:hover > .div-fleche {
   left: 55%;
 }
-#aside:target {
+#aside:target > .container > .homepage > .aside {
   width: 15%;
   overflow: hidden;
 }
-#aside:target > form {
+#aside:target > .container > .homepage > .aside > form {
   display: block;
 }
-#aside:target > .div-fleche {
+#aside:target > .container > .homepage > .aside > .div-fleche {
   display: none;
 }
