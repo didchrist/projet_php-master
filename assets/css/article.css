@@ -1,0 +1,31 @@
+.page-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  border: 1px solid gold;
+  background-color: rgba(189, 184, 184, 0.466);
+}
+p span {
+  font-weight: bold;
+}
+h1 {
+  font-size: 4rem;
+  padding: 20px;
+  text-transform: capitalize;
+}
+.image {
+  border: 1px solid rgba(168, 154, 154, 0.438);
+  background-color: rgba(245, 248, 248, 0.493);
+  border-radius: 3px;
+  padding: 30px;
+  margin: 10px;
+}
+p {
+  padding: 10px;
+  font-size: 1.8rem;
+}
+.block-btn {
+  display: flex;
+}

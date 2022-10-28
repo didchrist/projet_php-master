@@ -20,7 +20,7 @@
   height: 55%;
   align-items: center;
   border-radius: 10px 10px 0 0;
-  background-color: #bdc3c7;
+  background-color: #bdc3c75b;
   border-bottom: 1px solid #18534f;
   overflow: hidden;
 }
@@ -69,7 +69,7 @@
 }
 .div-fleche {
   position: absolute;
-  top: 30%;
+  top: 46%;
   left: 20%;
   transition: 1.5s;
 }

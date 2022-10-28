@@ -36,7 +36,7 @@ if (isset($_SESSION['utilisateur']) or isset($_COOKIE['utilisateur'])) {
             $articleController->removeArticle();
         } elseif ($page === 'article') {
             $articleController->getArticle();
-            $style = './assets/css/articles.css';
+            $style = './assets/css/article.css';
         } elseif ($page === 'login') {
             $userController->getUser();
             $style = './assets/css/add-article.css';
@@ -62,7 +62,7 @@ if (isset($_SESSION['utilisateur']) or isset($_COOKIE['utilisateur'])) {
             $style = './assets/css/articles.css';
         } elseif ($page === 'article') {
             $articleController->getArticle();
-            $style = './assets/css/articles.css';
+            $style = './assets/css/article.css';
         } elseif ($page === 'login') {
             $userController->getUser();
             $style = './assets/css/add-article.css';

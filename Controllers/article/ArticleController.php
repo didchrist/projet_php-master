@@ -67,7 +67,11 @@ class ArticleController
         $this->getClean();
         $article_index = $_POST['article-index'] ?? '';
         $article = $this->articleManager->getArticle($article_index);
-        $info = $_SESSION['utilisateur'] ? $_SESSION['utilisateur'] : $_COOKIE['utilisateur'];
+        if (isset($_COOKIE['utilisateur'])) {
+            $info = $_COOKIE['utilisateur'];
+        } else {
+            $info = $_SESSION['utilisateur'] ?? '';
+        }
         if ($info == $article->pseudonyme) {
             $droit = true;
         } else {
@@ -95,7 +99,11 @@ class ArticleController
 
         $image_chemin = '';
         $this->userManager = new UserManager;
-        $info = $_SESSION['utilisateur'] ? $_SESSION['utilisateur'] : $_COOKIE['utilisateur'];
+        if (isset($_COOKIE['utilisateur'])) {
+            $info = $_COOKIE['utilisateur'];
+        } else {
+            $info = $_SESSION['utilisateur'] ?? '';
+        }
         $user = $this->userManager->getUser($info);
         $iduser = $user->id;
 

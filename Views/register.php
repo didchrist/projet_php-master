@@ -8,20 +8,25 @@
         <h2>Create account</h2>
         <form action="#" method="POST">
             <div class="form-control">
+                <label for="nom">First name :</label>
                 <input type="text" name="nom" value="<?= $nom ?? '' ?>" placeholder="First Name" required>
             </div>
             <div class="form-control">
+                <label for="prenom">Last name :</label>
                 <input type="text" name="prenom" value="<?= $prenom ?? '' ?>" placeholder="Last Name" required>
             </div>
             <div class="form-control">
+                <label for="pseudonyme">Pseudonym :</label>
                 <input type="text" name="pseudonyme" value="<?= $pseudonyme ?? '' ?>" placeholder="Pseudonyme" required>
             </div>
             <div class="form-control">
+                <label for="email">Email :</label>
                 <input type="email" name="email" value="<?= $email ?? '' ?>" placeholder="Email" required>
             </div>
-            <?php if ($_SERVER['REQUEST_URI'] === '/index.php?page=register') : ?>
+            <?php if ($_SERVER['REQUEST_URI'] === '/register') : ?>
             <div class="form-control">
-                <input type="password" name="password" placeholder="******" required>
+                <label for="password">Password :</label>
+                <input type="password" name="password" placeholder="******" minlength="4" maxlength="20" required>
             </div>
             <div class="form-actions">
                 <button class="btn btn-primary" type="submit">Register</button>

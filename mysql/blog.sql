@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 27 oct. 2022 à 09:05
+-- Généré le : ven. 28 oct. 2022 à 08:53
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `pseudonyme` (`pseudonyme`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `users`

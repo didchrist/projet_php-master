@@ -8,13 +8,15 @@
         <h2>Login</h2>
         <form action="#" method="POST">
             <div class="form-control">
-                <input type="email" name="email" value="<?= $email ?? '' ?>" placeholder="Email" required>
+                <label for="email">Email :</label>
+                <input type="email" name="email" value="<?= $email ?? '' ?>" placeholder="example@example.com" required>
             </div>
             <div class="form-control">
-                <input type="password" name="password" placeholder="Password" required>
+                <label for="password">Password :</label>
+                <input type="password" name="password" placeholder="********" required>
             </div>
             <div class="form-actions">
-                <button class="btn btn-primary" type="submit">Loggin</button>
+                <button class="btn btn-primary" type="submit">Login</button>
             </div>
         </form>
     </div>

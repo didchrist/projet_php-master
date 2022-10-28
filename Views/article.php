@@ -1,10 +1,12 @@
-<div class="content">
-    <div class="block p-20 form-container">
-        <h1><?= $article->titre; ?></h1>
+<div class="page-article">
+    <h1><?= $article->titre; ?></h1>
+    <div class="image">
         <img src="<?= $article->image; ?>" alt="image">
-        <p><?= $article->description; ?></p>
-        <p>Rédact by <?= $article->pseudonyme ?></p>
-        <?php if ($droit) : ?>
+    </div>
+    <p><?= $article->description; ?></p>
+    <p>Redact by <span><?= $article->pseudonyme ?></span>.</p>
+    <?php if ($droit) : ?>
+    <div class="block-btn">
         <form action="../index.php?page=update-article" method="POST">
             <input type="hidden" name="article-index" value="<?= $article_index ?>" id="">
             <div class="form-actions">
@@ -17,6 +19,6 @@
                 <button class="btn btn-primary" type="submit" name="delete">Delete</button>
             </div>
         </form>
-        <?php endif; ?>
     </div>
+    <?php endif; ?>
 </div>

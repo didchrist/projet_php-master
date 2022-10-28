@@ -25,17 +25,19 @@
             <li><a class="<?= $_SERVER['REQUEST_URI'] === '/register' ? 'active' : '' ?>" href="register">Register</a>
             </li>
             <?php else : ?>
-            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/add-article' ? 'active' : '' ?>" href="add-article">Créer un
+            <li><a class="<?= $_SERVER['REQUEST_URI'] === '/add-article' ? 'active' : '' ?>" href="add-article">Add an
                     article</a></li>
             <li><a class="<?= $_SERVER['REQUEST_URI'] === '/profile' ? 'active' : '' ?>" href="profile">Profile</a></li>
-            <li><a href="disconnect">Se déconnecter</a></li>
+            <li><a href="disconnect">Sign out</a></li>
             <?php endif; ?>
         </ul>
     </header>
     <div class="container">
         <?= $content ?>
     </div>
-
+    <footer>
+        <p>© 2022 All right Reserved. ProjetBlogPHP</p>
+    </footer>
 </body>
 
 </html>

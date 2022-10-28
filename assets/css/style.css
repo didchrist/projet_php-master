@@ -48,12 +48,17 @@ ul {
 
 .container {
   font-size: 1.6rem;
-  min-height: 100vh;
+  height: 80vh;
   display: flex;
   flex-flow: column;
   color: var(--text-color);
 }
-
+footer {
+  min-height: 12vh;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+}
 /* text */
 
 .text-danger {
