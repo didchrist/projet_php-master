@@ -30,6 +30,8 @@
 }
 .card-category {
   margin-bottom: 5px;
+  color: rgb(60, 160, 160);
+  text-transform: capitalize;
 }
 .btn-color-card {
   background-color: #435372;

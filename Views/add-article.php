@@ -12,7 +12,7 @@
                 <input type="text" name="title" placeholder="title" value="<?= $title ?? '' ?>" required>
             </div>
             <div class="form-control">
-                <label for="image">().jpg and .png only)</label>
+                <label for="image">(.jpg and .png only)</label>
                 <input name="image" type="file">
             </div>
             <div class="form-control">
