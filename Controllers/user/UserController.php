@@ -71,7 +71,11 @@ class UserController
     {
         $this->getClean();
         require_once './Views/errors.php';
-        $info = $_SESSION['utilisateur'] ? $_SESSION['utilisateur'] : $_COOKIE['utilisateur'];
+        if (isset($_COOKIE['utilisateur'])) {
+            $info = $_COOKIE['utilisateur'];
+        } else {
+            $info = $_SESSION['utilisateur'] ?? '';
+        }
         $user = $this->userManager->getUser($info);
         $nom = $user->nom;
         $prenom = $user->prenom;
@@ -81,11 +85,15 @@ class UserController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nom = $_POST['nom'];
             $prenom = $_POST['prenom'];
-            $pseudonyme = $_POST['pseudonyme'];
-            $email = $_POST['email'];
+            $pseudonyme_tmp = $_POST['pseudonyme'];
+            $email_tmp = $_POST['email'];
             $id = $user->id;
             try {
-                $this->userManager->updateUser($nom, $prenom, $pseudonyme, $email, $id);
+                $this->userManager->updateUser($nom, $prenom, $pseudonyme_tmp, $email_tmp, $id);
+                $pseudonyme = $pseudonyme_tmp;
+                $email = $email_tmp;
+                $_SESSION['utilisateur'] = $pseudonyme;
+                $_COOKIE['utilisateur'] = $pseudonyme;
             } catch (PDOException $e) {
                 $error = ERROR_ALREADY_TAKEN;
             }
